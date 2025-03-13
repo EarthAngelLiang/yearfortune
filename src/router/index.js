@@ -297,6 +297,35 @@ const routes = [
         component: () => import('../views/rili/jiri.vue')
       }
     ]
+  },
+
+  {
+    path: '/yearforune',
+    redirect: '/yearforune/home',
+    component: () => import(/* webpackChunkName: "about" */ '../views/yearforune/index.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'yearforune_home',
+        component: () => import(/* webpackChunkName: "about" */ '../views/yearforune/home.vue')
+      },
+      {
+        path: 'order_detail',
+        name: 'yearforune_order_detail',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ '../views/yearforune/order_detail.vue')
+      }
+      // {
+      //   path: 'agreement_use',
+      //   name: 'love_agreement_use',
+      //   // route level code-splitting
+      //   // this generates a separate chunk (about.[hash].js) for this route
+      //   // which is lazy-loaded when the route is visited.
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/love/agreement_use.vue')
+      // }
+    ]
   }
 ]
 

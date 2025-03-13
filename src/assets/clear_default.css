@@ -10,8 +10,10 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
 * {
     box-sizing: border-box;
 }
-
-html, body {
+html{
+    min-height: 100%;
+}
+body {
     min-height: 100%;
     font-size: 3.8vw;
 }

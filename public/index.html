@@ -26,6 +26,19 @@
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
         Please enable it to continue.</strong>
   </noscript>
+  <script >
+    function fn(){
+        let screenWidth = document.documentElement.clientWidth//获取屏幕的宽度
+        let centerWH = 750 / screenWidth//比例
+        document.documentElement.style.fontSize = 1 / centerWH + 'px' //设置html根元素fontsize的大小
+
+        
+        console.log('在这吧  1rem 修改等于 1rpx ', centerWH, screenWidth)
+    }
+    fn()
+  </script>
+
+
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
