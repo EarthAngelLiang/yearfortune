@@ -1,0 +1,3 @@
+cd到此目录
+index.html写好哪些字体需要用到哪些文字
+"C:\Program Files\nodejs\node_global\font-spider" index.html

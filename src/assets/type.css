@@ -1,0 +1,60 @@
+
+@font-face {
+    font-family: "alis";  
+    src: url('~@/assets/font/Alibaba-PuHuiTi-Regular.ttf') format('truetype');
+} 
+@font-face {
+    font-family: "zzqxmt";  
+    src: url('~@/assets/font/ZiZhiQuXiMaiTi-2.ttf') format('truetype');
+} 
+*{
+    font-family:'alis';
+    box-sizing: border-box;
+} 
+input{
+    color: rgb(165, 162, 161) !important;
+    font-size: 4.2vw;
+}
+input::-webkit-input-placeholder{
+    color: rgb(165, 162, 161) !important;
+    font-size: 4.2vw;
+}
+input::-moz-placeholder{
+    color: rgb(165, 162, 161)red !important;
+    font-size: 4.2vw;
+}
+input::-ms-input-placeholder{
+    color: rgb(165, 162, 161) !important;
+    font-size: 4.2vw;
+}
+.bottom-text{
+    color: rgb(156, 70, 9,.8);
+    font-size: 3.4vw;
+    margin: 3vw 0;
+    text-decoration:underline;
+}
+
+.top-bg{
+    width: 100%;
+    z-index: 0;
+}
+
+.font-white-type1{
+    color: #ddd;
+    font-size: 3.8vw;
+}
+.font-info-type{
+    color: #000;
+    font-size: 5vw;
+    /* font-weight: 700; */
+}
+.font-white-type2{ 
+    font-size: 4.6vw;
+    color: #fff;
+    line-height: 9vw;
+}
+.font-white-type3{ 
+    font-size: 4vw;
+    color: rgba(255, 255, 255, .8); 
+    line-height: 5.6vw;
+}
