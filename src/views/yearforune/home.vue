@@ -1,16 +1,47 @@
 <template>
     <div class="yearforune_warp">
-        <div class="yearforune_order_tips">
+        <div class="yearforune_order_tips" :style="{ height:closeCheck? '80rem':0 }">
             <div class="tips_left">
                 <img src="@/assets/yearforune/index_tips.png" alt="" class="tips_img">
                 <div class="already_tips">你已经有测试完成的报告哦～</div>
             </div>
 
-            <div class="order-detail" @click="toCheckHistory"><span
-                    class=" iconfont icon-sousuoxiao"></span> 订单查询</div>
+            <div class="order-detail" @click="toCheckHistory"><span class=" iconfont icon-sousuoxiao"></span> 订单查询</div>
             <div class="tips_right">
                 <div class="tips_check" @click="toCheckHistory">立即查看</div>
-                <div class="tips_close">关闭</div>
+                <div class="tips_close" @click="closeCheck = false">关闭</div>
+            </div>
+        </div>
+        <div class="yearforune_modal_mask" :style="{ height: showModal?'100vh':0 }">
+            <div class="yearforune_modal_content" v-if="!isComfirm">
+                <div class="yearforune_modal_trrigger">
+                    <div class="yearforune_modal_trrigger_item trrigger_active">公历</div>
+                    <div class="yearforune_modal_trrigger_item">农历</div>
+                </div>
+                <div class="yearforune_modal_info">
+                </div>
+                <div class="yearforune_modal_btn">
+                    <div class="yearforune_modal_btn_item" @click="showModal = false">取消</div>
+                    <div class="yearforune_modal_btn_item btn_active">确定</div>
+                </div>
+            </div>
+            <div class="yearforune_modal_content" v-if="isComfirm">
+                <div class="yearforune_modal_title">确定所选时间</div>
+                <div class="yearforune_modal_small_title">请确认输入的时间是否正确</div>
+                <div class="yearforune_modal_info" style="height: 412rem;">
+                    <div class="yearforune_modal_info_item">
+                        <div class="yearforune_modal_info_label">公(阳)历：</div>
+                        <div class="yearforune_modal_info_time">1990年12月16日 15:00-15:59(申)时</div>
+                    </div>
+                    <div class="yearforune_modal_info_item">
+                        <div class="yearforune_modal_info_label">公(阳)历：</div>
+                        <div class="yearforune_modal_info_time">1990年12月16日 15:00-15:59(申)时</div>
+                    </div>
+                </div>
+                <div class="yearforune_modal_btn">
+                    <div class="yearforune_modal_btn_item" @click="showModal = false">取消</div>
+                    <div class="yearforune_modal_btn_item btn_active">确定</div>
+                </div>
             </div>
         </div>
         <div class="yearforune_top_introduction">
@@ -81,6 +112,13 @@
 </template>
 <script>
 export default {
+  data () {
+    return {
+      closeCheck: true,
+      showModal: true,
+      isComfirm: true
+    }
+  },
   methods: {
     toCheckHistory () {
       // this.$router
@@ -108,14 +146,111 @@ export default {
       border-top-left-radius: 1.4vw;
       border-bottom-left-radius: 1.4vw;
       display: flex;
-      // justify-content: center;
       text-align: center;
       flex-direction: column;
-
       .iconfont {
           margin-bottom: .5vw;
       }
   }
+  .yearforune_modal_mask{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 600;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 1s;
+    overflow: hidden;
+    .yearforune_modal_content{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 710rem;
+        background-image: url('@/assets/yearforune/modal_bg.png');
+        background-size: 100% 100%;
+        .yearforune_modal_trrigger{
+            display: flex;
+            // justify-content: center;
+            // align-items: center;
+            border: 1rem solid #E74B1E;
+            border-radius: 8rem;
+            height: 82rem;
+            width: 456rem;
+            margin: 56rem auto 0 auto;
+            box-sizing: border-box;
+            .yearforune_modal_trrigger_item{
+                flex: 1;
+                color: #E74B1E;
+                text-align: center;
+                height: 82rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 34rem;
+                font-weight: 700;
+            }
+            .trrigger_active{
+                background-color: #E74B1E;
+                color: #fff !important;
+                height: 82rem;
+            }
+        }
+        .yearforune_modal_info{
+            width: 100vw;
+            height: 422rem;
+            background-color: greenyellow;
+
+            .yearforune_modal_info_item{
+                margin:27rem 0;
+            }
+
+        }
+        .yearforune_modal_title{
+            margin-top: 40rem;
+            text-align: center;
+            font-size: 40rem;
+            font-weight: 700;
+            height: 58rem;
+            color: #333;
+            line-height: 58rem;
+
+        }
+        .yearforune_modal_small_title{
+            margin-top: 10rem;
+                text-align: center;
+                font-size: 30rem;
+                color: #333;
+                line-height: 44rem;
+                height: 44rem;
+        }
+
+        .yearforune_modal_btn{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30rem;
+            .yearforune_modal_btn_item{
+                width: 316rem;
+                height: 96rem;
+                background-image: url('@/assets/yearforune/qx_bg.png');
+                background-size: 100% 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #666;
+                font-size: 34rem;
+                font-weight: 700;
+            }
+            .btn_active{
+                color: #fff !important;
+                background-image: url('@/assets/yearforune/qd_bg.png');
+            }
+        }
+
+    }
+  }
+
 .yearforune_warp {
     width: 100vw;
     height: 100vh;
@@ -125,7 +260,8 @@ export default {
     .yearforune_order_tips {
         padding: 0 12px;
         width: 100vw;
-        height: 80rem;
+
+        transition: all .5s;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -145,7 +281,6 @@ export default {
         .tips_right {
             display: flex;
             align-items: center;
-
             .tips_check {
                 display: flex;
                 justify-content: center;
