@@ -5,29 +5,123 @@
                 <img src="@/assets/yearforune/index_tips.png" alt="" class="tips_img">
                 <div class="already_tips">你已经有测试完成的报告哦～</div>
             </div>
+
+            <div class="order-detail" @click="toCheckHistory"><span
+                    class=" iconfont icon-sousuoxiao"></span> 订单查询</div>
             <div class="tips_right">
-                <div class="tips_check">立即查看</div>
+                <div class="tips_check" @click="toCheckHistory">立即查看</div>
                 <div class="tips_close">关闭</div>
             </div>
         </div>
         <div class="yearforune_top_introduction">
             <div class="header_title">2025全网首发</div>
-
             <div class="top_bg0"></div>
             <div class="top_bg1"></div>
             <div class="top_bg2"></div>
-
+            <div class="top_bg3"></div>
         </div>
+        <div class="yearforune_input_box">
+            <div class="yearforune_input_kuan">
+                <div class="input_row">
+                    <div class="input_name">姓名：</div>
+                    <input class="input_item" placeholder="请输入您的姓名(必须汉字)">
+                </div>
+                <div class="input_row">
+                    <div class="input_name">性别：</div>
+                    <div class="input_sex">
+                        <div class="sex_type active_sex">男</div>
+                        <div class="sex_type">女</div>
+                    </div>
+                </div>
+                <div class="input_row">
+                    <div class="input_name">姓名：</div>
+                    <input class="input_item" placeholder="请输入您的姓名(必须汉字)">
+                </div>
+
+                <!-- 开始分析按钮 -->
+                <div class="input_btn_submit"></div>、
+
+                <div class="agreement_row">
+                    <div class="agreement_check agreement_check_active"></div>
+                    <div class="agreement_small_row">
+                        <div class="agreement_small_item">同意</div>
+                        <div class="agreement_small_item">《用户协议》</div>
+                        <div class="agreement_small_item">和</div>
+                        <div class="agreement_small_item">《隐私协议》</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yearforune_already">
+            <div class="already_left">
+                <img class="already_img"
+                    src="https://img0.baidu.com/it/u=2191392668,814349101&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1399"
+                    alt="">
+                <div class="already_bottom">
+                    <div class="already_name">随遇而安</div>
+                    <div class="already_name">16分钟前购买蛇年运程</div>
+                </div>
+            </div>
+            <div class="already_center_line"></div>
+            <div class="already_right">
+                <div class="already_pay_number">
+                    已有<span style="color: #FFD461; font-weight: bold;">2216139</span>人领取蛇年运程报告
+                </div>
+            </div>
+        </div>
+
+        <div class="yearforune_person_introduction"></div>
+        <div class="yearforune_forune_introduction"></div>
+        <div class="yearforune_guide_introduction"></div>
+        <div class="yearforune_comments_introduction"></div>
+        <div class="yearforune_solve_introduction"></div>
+        <div class="yearforune_why_introduction"></div>
 
     </div>
 </template>
+<script>
+export default {
+  methods: {
+    toCheckHistory () {
+      // this.$router
+      console.log(this.$router, 'this.$router')
+      this.$router.push('check_history')
+    }
+  }
+}
+
+</script>
 
 <style lang="less" scoped>
+
+  .order-detail {
+      position: fixed;
+      right: 0;
+      top: 24vh;
+      z-index: 9;
+      width: 7vw;
+
+      background-color: rgba(0, 0, 0, 0.5);
+      font-size: 4vw;
+      color: rgba(255, 255, 255, .8);
+      padding: 2vw 0;
+      border-top-left-radius: 1.4vw;
+      border-bottom-left-radius: 1.4vw;
+      display: flex;
+      // justify-content: center;
+      text-align: center;
+      flex-direction: column;
+
+      .iconfont {
+          margin-bottom: .5vw;
+      }
+  }
 .yearforune_warp {
     width: 100vw;
     height: 100vh;
     overflow: auto;
-
+    background-color: rgb(228, 90, 43);
+    padding-bottom: 400rem;
     .yearforune_order_tips {
         padding: 0 12px;
         width: 100vw;
@@ -104,6 +198,16 @@
         }
         .top_bg0 {
             position: absolute;
+            top: 106rem;
+            left: 0;
+            z-index: 0;
+            width: 100vw;
+            height: 96vw;
+            background-image: url('@/assets/yearforune/top4.png');
+            background-size: 100% 100%;
+        }
+        .top_bg1 {
+            position: absolute;
             top: 100rem;
             left: 0;
             z-index: 2;
@@ -112,7 +216,7 @@
             background-image: url('@/assets/yearforune/top_2025.png');
             background-size: 100% 100%;
         }
-        .top_bg1 {
+        .top_bg2 {
             position: absolute;
             top: 100rem;
             left: 0;
@@ -122,7 +226,7 @@
             background-image: url('@/assets/yearforune/top1.png');
             background-size: 100% 100%;
         }
-        .top_bg2{
+        .top_bg3{
             position: absolute;
             top: 100rem;
             left: 0;
@@ -133,6 +237,186 @@
             background-size: 100% 100%;
         }
 
+    }
+    .yearforune_input_box{
+        margin-top: -304rem;
+        position: relative;
+        width: 100vw;
+        height: 767rem;
+        .yearforune_input_kuan{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 701rem;
+            height: 767rem;
+            transform: translate(-50%,0);
+            background-image: url('@/assets/yearforune/input_kuan.png');
+            background-size: 100% 100%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 160rem;
+            .input_row{
+                display: flex;
+                align-items: center;
+                width: 590rem;
+                height: 98rem;
+                background-color: #fff;
+                border-radius: 49rem;
+                border: 1rem solid rgb(249, 192, 74);
+                margin-bottom: 30rem;
+                .input_name{
+                    width: 120rem;
+                    font-size: 32rem;
+                    text-align: center;
+                }
+                .input_sex{
+                    height: 70rem;
+                    display: flex;
+                    align-items: center;
+
+                    .active_sex{
+                        background: rgb(227, 85, 49) !important;
+                        border: 1rem solid rgb(227, 85, 49) !important;
+                        color: #fff !important;
+                    }
+                    .sex_type{
+                        width: 70rem;
+                        height: 70rem;
+                        border-radius: 50%;
+                        border: 1rem solid rgb(51, 51, 51);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #fff;
+                        margin-right: 30rem;
+                        font-size: 32rem;
+                        color: #333;
+                    }
+                }
+                .input_item{
+                    width: 420rem !important;
+                }
+            }
+            .input_btn_submit{
+                width: 610rem;
+                height: 121rem;
+                background-image: url('@/assets/yearforune/sub_button.png');
+                background-size: 100% 100%;
+            }
+            .agreement_row{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .agreement_check{
+                    width: 36rem;
+                    height: 36rem;
+                    border-radius: 50%;
+                    border: 1rem solid #333;
+                    box-sizing: border-box;
+                    margin-right: 10rem;
+                }
+                .agreement_check_active{
+                    border: 1rem solid #E35531 !important;
+                    background-image: url('@/assets/yearforune/agreement_check.png');
+                    background-size: 100% 100%;
+                }
+
+                .agreement_small_row{
+                    display: flex;
+                    align-items: center;
+                    .agreement_small_item{
+                        line-height: 34rem;
+                        font-size: 28rem;
+                        margin-right: 12rem;
+                        color: #AD885B;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .yearforune_already{
+        margin-top: 39rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .already_left{
+            width: 432rem;
+            height: 96rem;
+            display: flex;
+            align-items: center;
+            .already_img{
+                width: 96rem;
+                height: 96rem;
+                border-radius:50% ;
+                margin-right: 10rem;
+                object-fit: cover;
+                object-position: center; /* 调整为中间部分 */
+            }
+            .already_bottom{
+                .already_name{
+                    font-size: 26rem;
+                    color: #fff;
+                    line-height: 38rem;
+                }
+            }
+        }
+        .already_center_line{
+            width: 1px;
+            height: 74rem;
+            background-color: #fff;
+        }
+        .already_right{
+            width: 259rem;
+            height: 96rem;
+            padding-left: 30rem;
+            font-size: 26rem;
+            color: #fff;
+            line-height: 38rem;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .yearforune_person_introduction{
+        margin-top: 80rem;
+        width: 100vw;
+        height: 100vw;
+        background-image: url('@/assets/yearforune/introduction_1.png');
+        background-size: 100% 100%;
+    }
+    .yearforune_forune_introduction{
+        width: 100vw;
+        height: 1113rem;
+        background-image: url('@/assets/yearforune/forune_1.png');
+        background-size: 100% 100%;
+    }
+    .yearforune_guide_introduction{
+        width: 100vw;
+        height: 1480rem;
+        background-image: url('@/assets/yearforune/guide_1.png');
+        background-size: 100% 100%;
+    }
+    .yearforune_comments_introduction{
+
+        width: 100vw;
+        height: 1530rem;
+        background-image: url('@/assets/yearforune/comments_1.png');
+        background-size: 100% 100%;
+    }
+    .yearforune_solve_introduction{
+        width: 100vw;
+        height: 1258rem;
+        background-image: url('@/assets/yearforune/solve_1.png');
+        background-size: 100% 100%;
+    }
+    .yearforune_why_introduction{
+        width: 100vw;
+        height: 1092rem;
+        background-image: url('@/assets/yearforune/why_1.png');
+        background-size: 100% 100%;
     }
 
 }

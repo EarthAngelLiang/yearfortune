@@ -1,7 +1,7 @@
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 const defaultSettings = require('./src/settings.js')
 
-const name = defaultSettings.title || '智汇图' // page title
+const name = defaultSettings.title || '' // page title
 module.exports = {
   transpileDependencies: true,
 

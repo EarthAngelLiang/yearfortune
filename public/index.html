@@ -36,6 +36,9 @@
         console.log('在这吧  1rem 修改等于 1rpx ', centerWH, screenWidth)
     }
     fn()
+    window.addEventListener('resize', () => {
+        fn()
+      })
   </script>
 
 
